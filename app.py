@@ -81,7 +81,7 @@ def load_yolo_model(model_path):
         st.error(f"ไม่สามารถโหลดโมเดลได้: {e}")
         return None
 
-model_path = "helmet_model.pt" 
+model_path = "best.pt" 
 model = load_yolo_model(model_path)
 
 if model:
