@@ -35,6 +35,11 @@ def process_video(uploaded_file, model):
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
 
+        if not out.isOpened():
+            st.error("ไม่สามารถสร้างไฟล์ VideoWriter ได้ (Error creating VideoWriter)")
+            st.error("ลองตรวจสอบว่า Codec 'avc1' รองรับหรือไม่ หรือลองวิธีที่ 2")
+            return None
+
         # 4. วนลูปอ่านทีละเฟรม
         st.info("กำลังประมวลผลวิดีโอ... กรุณารอสักครู่ ⏳")
         while cap.isOpened():
